@@ -1,0 +1,45 @@
+<div class="card col-md-6 offset-md-3">
+    <!-- <div class="class-heder">
+      Login
+    </div> -->
+  <div class="card-body">
+  <form novalidate  (ngSubmit)="onSubmit(loginForm)" #loginForm ="ngForm">
+      <div class="form-group">
+          <label for="usernameId">User Name</label>
+          <div>
+            <input class="form-control" id="usernameId" type="text" placeholder="User Name(Required)" required [(ngModel)] = user.userName
+            name="userName" #userNameVal = "ngModel"
+            [ngClass]="{ 'is-invalid': (userNameVal.touched || userNameVal.dirty) && !userNameVal.valid }">
+            <span class="invalid-feedback">
+              <span *ngIf="userNameVal.errors?.required">
+                User Name is required
+              </span>
+            </span>
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="passwordId">Password</label>
+        <div>
+          <input class="form-control" id="passwordId" type="password" placeholder="Password(Required)" required [(ngModel)] = user.password
+          name="password" #passwordVal = "ngModel"
+          [ngClass]="{ 'is-invalid': (passwordVal.touched || passwordVal.dirty) && !passwordVal.valid }">
+          <span class="invalid-feedback">
+            <span *ngIf="passwordVal.errors?.required">
+              Password is required
+            </span>
+          </span>
+        </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary"
+      type="submit"
+      style="width:80px"
+      [title]="loginForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+      [disabled]="!loginForm.valid">
+      Login
+      </button>
+    </div>
+  </form>
+  </div>
+  </div>
+  

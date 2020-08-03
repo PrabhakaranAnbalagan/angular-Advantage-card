@@ -1,0 +1,41 @@
+<h1>Welcome {{customer.CustomerName}}</h1>
+<hr>
+<br>
+<h3>Advantage Card</h3>
+<hr>
+<div class="card" style="width: 25rem;">
+    <div class="card-header">
+      <input type="radio" name="optradio" [value]="advantageCard.CardNumber" checked>
+    </div>
+  <div class="card-body text-primary" id="advantageCard">
+    <h5 class="card-title">Card Number: {{advantageCard.CardNumber}}</h5>
+    <h6 class="card-text">Card Type: {{advantageCard.CardType}}</h6>
+    <h6 class="card-text">Score: {{advantageCard.Score}}</h6>
+  </div>
+</div>
+<br>
+<div *ngIf ="otherCards && otherCards.length">
+  <h3>Other Cards</h3>
+  <hr>
+  <div class="card-deck" >
+    <div class="card" *ngFor="let otherCard of otherCards">
+        <div class="card-header">
+          <input type="radio" name="optradio" [value]="advantageCard.CardNumber">
+        </div>
+        <div class="card-body  text-primary" id="otherCards">
+            <h5 class="card-title">Card Number: {{otherCard.CardNumber}}</h5>
+            <h6 class="card-text">Card Type: {{otherCard.CardType}}</h6>
+            <h6 class="card-text">Score: {{otherCard.Score}}</h6>
+        </div>
+    </div>
+  </div>
+</div>
+<br>
+<button class="btn btn-primary"
+type="submit"
+style="width:100px"
+(click)="pay()">
+Pay
+</button>
+<br>
+<hr>
